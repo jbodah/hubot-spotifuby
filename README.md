@@ -1,2 +1,2 @@
 # hubot-spotifuby
-hubot script for spotifuby
+hubot script for spotifuby (https://github.com/jbodah/spotifuby)
