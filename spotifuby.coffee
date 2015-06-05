@@ -44,6 +44,16 @@ module.exports = (robot) ->
       regexp: '(pause|stop) music',
       doc:    'pause music (alias: stop music) - Pause current track',
       route:  '/pause'
+    },
+    {
+      regexp: "what'?s playing\??",
+      doc:    "whats playing - Display the info for the track that's currently playing",
+      route:  '/current_track.json',
+      filter: (msg, err, res, body) ->
+        body = JSON.parse(body)
+        info = ''
+        info = info.concat(k[0].toUpperCase() + k[1..-1] + ": #{v}") for k, v of body
+        msg.send info.trim()
     }
   ]
 
@@ -53,15 +63,7 @@ module.exports = (robot) ->
       robot.hear new RegExp("^#{command.regexp}$", 'i'), (msg) ->
         msg.http(host + command.route)
           .get() (err, res, body) ->
-            msg.send 'As you wish'
-
-  robot.commands.push(
-    "whats playing - Display the info for the track that's currently playing"
-  )
-  robot.hear /what'?s playing\??/i, (msg) ->
-    msg.http(host + '/current_track.json')
-      .get() (err, res, body) ->
-        body = JSON.parse(body)
-        info = ''
-        info = info.concat(k[0].toUpperCase() + k[1..-1] + ": #{v}") for k, v of body
-        msg.send info.trim()
+            if command.filter
+              command.filter(msg, err, res, body)
+            else
+              msg.send 'As you wish'
