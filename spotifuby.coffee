@@ -50,7 +50,7 @@ module.exports = (robot) ->
   for command in commands
     do (command) ->
       robot.commands.push(command.doc)
-      robot.hear new RegExp("^#{command.regexp}", 'i'), (msg) ->
+      robot.hear new RegExp("^#{command.regexp}$", 'i'), (msg) ->
         msg.http(host + command.route)
           .get() (err, res, body) ->
             msg.send 'As you wish'
