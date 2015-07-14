@@ -46,8 +46,8 @@ module.exports = (robot) ->
       route:  '/pause'
     },
     {
-      regexp: "what'?s playing\??",
-      doc:    "whats playing - Display the info for the track that's currently playing",
+      regexp: "(what'?s playing\??|wtf is this\?)",
+      doc:    "whats playing (alias: wtf is this) - Display the info for the track that's currently playing",
       route:  '/current_track.json',
       filter: (msg, err, res, body) ->
         body = JSON.parse(body)
