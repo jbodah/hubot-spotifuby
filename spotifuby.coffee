@@ -8,6 +8,7 @@
 #
 # Configuration:
 #   SPOTIFUBY_HOST
+#   DEFAULT_SPOTIFUBY_PLAYLIST
 #
 # Commands:
 #   None
@@ -18,8 +19,8 @@
 module.exports = (robot) ->
 
   host = process.env.SPOTIFUBY_HOST
-  default_playlist = 'spotify:user:1264386160:starred'
-  fresh_rate = 1.0 #0.05
+  default_playlist = process.env.DEFAULT_SPOTIFUBY_PLAYLIST
+  fresh_rate = 0.05
   been_fresh = false
 
   is_fresh_time = ->
