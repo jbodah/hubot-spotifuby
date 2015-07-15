@@ -115,7 +115,6 @@ module.exports = (robot) ->
         body = JSON.parse(body)
         if body[0] && body[0].id
           simple_post msg, '/play', { uri: body[0].uri }
-          speak_nice msg
         else
           speak_fresh msg
 
