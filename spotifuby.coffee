@@ -72,8 +72,7 @@ module.exports = (robot) ->
     msg.http(host + '/')
       .get() (err) ->
         status = if err then "down" else "up"
-        msg.send "Host - " + host + "\nStatus - " + status +
-                 "\nDefault Playlist - " + default_playlist
+        msg.send "Host - " + host + "\nStatus - " + status
 
   robot.commands.push('mute - Set volume to 0')
   robot.hear /\bmute\b/i, (msg) ->
@@ -107,6 +106,11 @@ module.exports = (robot) ->
     uri = msg.match[1]
     simple_post msg, '/play', { uri: uri }
 
+  robot.commands.push('enqueue uri <URI> - Enqueue the given Spotify URI')
+  robot.hear /\benqueue uri (\S+)\b/i, (msg) ->
+    uri = msg.match[1]
+    simple_post msg, '/enqueue', { uri: uri, priority: 'low' }
+
   robot.commands.push('play me some <ARTIST> - Play a random song by the artist')
   robot.hear /\bplay me some (.*)\b/i, (msg) ->
     q = msg.match[1]
@@ -118,9 +122,31 @@ module.exports = (robot) ->
         else
           speak_fresh msg
 
+  robot.commands.push('enqueue me some <ARTIST> - Enqueue artist based on search query')
+  robot.hear /\benqueue me some (.*)\b/i, (msg) ->
+    q = msg.match[1]
+    msg.http(host + '/search_artist.json?q=' + q)
+      .get() (err, res, body) ->
+        body = JSON.parse(body)
+        if body[0] && body[0].id
+          simple_post msg, '/enqueue', { uri: body[0].uri, priority: 'low' }
+        else
+          speak_fresh msg
+
+  robot.commands.push('enqueue track <TRACK> - Enqueue track based on search query')
+  robot.hear /\benqueue track (.*)\b/i, (msg) ->
+    q = msg.match[1]
+    msg.http(host + '/search_track.json?q=' + q)
+      .get() (err, res, body) ->
+        body = JSON.parse(body)
+        if body[0] && body[0].id
+          simple_post msg, '/enqueue', { uri: body[0].uri, priority: 'low' }
+        else
+          speak_fresh msg
+
   robot.commands.push('play default playlist - Plays the default playlist')
   robot.hear /\bplay default playlist\b/i, (msg) ->
-    simple_post msg, '/play', { uri: default_playlist }
+    simple_post msg, '/play_default_uri'
 
   robot.commands.push("whats playing (alias: wtf is this) - Display the info for the track that's currently playing")
   robot.hear /\b(what'?s playing|wtf is this)\??\b/i, (msg) ->
