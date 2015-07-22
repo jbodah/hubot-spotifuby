@@ -19,7 +19,6 @@
 module.exports = (robot) ->
 
   host = process.env.SPOTIFUBY_HOST
-  default_playlist = process.env.DEFAULT_SPOTIFUBY_PLAYLIST
   fresh_rate = 0.05
   been_fresh = false
 
