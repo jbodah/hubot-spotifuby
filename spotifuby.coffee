@@ -153,6 +153,14 @@ module.exports = (robot) ->
       .get() (err, res, body) ->
         body = JSON.parse(body)
         info = ''
-        info = info.concat(k[0].toUpperCase() + k[1..-1] + ": #{v}") for k, v of body
+        info = info.concat(k[0].toUpperCase() + k[1..-1] + ": #{v} \| ") for k, v of body
         msg.send info.trim()
 
+  robot.commands.push("who added this - Blames a user for the track that's currently playing")
+  robot.hear /\b(who added this)\??\b/i, (msg) ->
+    msg.http(host + '/who_added_track.json')
+      .get() (err, res, body) ->
+        body = JSON.parse(body)
+        info = ''
+        info = "#{v}" for _, v of body
+        msg.send info.trim()
