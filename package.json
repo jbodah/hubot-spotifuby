@@ -1,25 +1,26 @@
 {
   "name": "hubot-spotifuby",
   "description": "hubot/spotifuby integration",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "author": "Josh Bodah <jb3689@yahoo.com>",
   "license": "MIT",
-
-  "keywords": ["hubot","hubot-scripts","hipchat","spotifuby","spotify"],
-
+  "keywords": [
+    "hubot",
+    "hubot-scripts",
+    "hipchat",
+    "spotifuby",
+    "spotify"
+  ],
   "repository": {
     "type": "git",
     "url": "git://github.com/jbodah/hubot-spotifuby.git"
   },
-
   "bugs": {
     "url": "https://github.com/jbodah/hubot-spotifuby/issues"
   },
-
   "dependencies": {
     "coffee-script": "~1.6"
   },
-
   "devDependencies": {
     "mocha": "*",
     "chai": "*",
@@ -30,9 +31,7 @@
     "matchdep": "~0.1.2",
     "grunt-contrib-watch": "~0.5.3"
   },
-
   "main": "index.coffee",
-
   "scripts": {
     "test": "grunt test"
   }
