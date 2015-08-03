@@ -1,5 +1,7 @@
 # hubot-spotifuby
 
+[![npm version](https://badge.fury.io/js/hubot-spotifuby.svg)](http://badge.fury.io/js/hubot-spotifuby)
+
 hubot/spotifuby integration
 
 [What is Spotifuby?](https://github.com/jbodah/spotifuby)
