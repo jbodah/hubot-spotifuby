@@ -153,6 +153,6 @@ module.exports = (robot) ->
       .get() (err, res, body) ->
         body = JSON.parse(body)
         info = ''
-        info = info.concat(k[0].toUpperCase() + k[1..-1] + ": #{v}") for k, v of body
+        info = info.concat(k[0].toUpperCase() + k[1..-1] + ": #{v}\n") for k, v of body
         msg.send info.trim()
 
