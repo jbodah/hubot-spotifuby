@@ -9,11 +9,11 @@
 
   "repository": {
     "type": "git",
-    "url": "git://github.com/hubot-scripts/hubot-spotifuby.git"
+    "url": "git://github.com/jbodah/hubot-spotifuby.git"
   },
 
   "bugs": {
-    "url": "https://github.com/hubot-scripts/hubot-spotifuby/issues"
+    "url": "https://github.com/jbodah/hubot-spotifuby/issues"
   },
 
   "dependencies": {
