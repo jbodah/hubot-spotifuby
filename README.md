@@ -2,7 +2,7 @@
 
 hubot/spotifuby integration
 
-[What is Spotfiuby?](https://github.com/jbodah/spotifuby)
+[What is Spotifuby?](https://github.com/jbodah/spotifuby)
 
 See [`src/spotifuby.coffee`](src/spotifuby.coffee) for full documentation.
 
