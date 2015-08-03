@@ -18,11 +18,11 @@ Then add **hubot-spotifuby** to your `external-scripts.json`:
 ["hubot-spotifuby"]
 ```
 
-You'll also need to setup the `SPOTIFUBY_HOST` instance variable.
+You'll also need to setup the `SPOTIFUBY_HOST` environment variable.
 
 ## Sample Interaction
 
 ```
-user1>> hubot hello
-hubot>> hello!
+user1>> play music
+hubot>> As you wish
 ```
