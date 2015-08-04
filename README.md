@@ -28,3 +28,9 @@ You'll also need to setup the `SPOTIFUBY_HOST` environment variable.
 user1>> play music
 hubot>> As you wish
 ```
+
+## Releasing
+
+```
+grunt release
+```
