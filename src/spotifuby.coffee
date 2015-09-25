@@ -66,6 +66,9 @@ module.exports = (robot) ->
   set_volume = (msg, volume) ->
     simple_post msg, '/set_volume', { volume: volume }
 
+  set_shuffle = (msg, is_enabled) ->
+    simple_post msg, '/set_shuffle', { shuffle: is_enabled }
+
   robot.commands.push('spotifuby info - Displays info about Spotifuby server')
   robot.hear /spotifuby info/i, (msg) ->
     msg.http(host + '/')
@@ -91,6 +94,14 @@ module.exports = (robot) ->
       speak_fresh msg, 'But I love this song!'
     else
       simple_post msg, '/next'
+
+  robot.commands.push('enable shuffle (alias: start shuffle) - Enable shuffling')
+  robot.hear /\b(start|enable) shuffl(e|ing)\b/i, (msg) ->
+    set_shuffle msg, true
+
+  robot.commands.push('disable shuffle (alias: stop shuffle) - Disable shuffling')
+  robot.hear /\b(stop|disable) shuffl(e|ing)\b/i, (msg) ->
+    set_shuffle msg, false
 
   robot.commands.push('pause music (alias: stop music) - Pause current track')
   robot.hear /\b(pause|stop) music\b/i, (msg) ->
