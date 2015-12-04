@@ -89,7 +89,7 @@ module.exports = (robot) ->
     set_volume msg, msg.match[1]
 
   robot.commands.push('skip track - Play next track')
-  robot.hear /\bskip track\b/i, (msg) ->
+  robot.hear /\b(skip track|\(skiptrack\))\b/i, (msg) ->
     if is_fresh_time()
       speak_fresh msg, 'But I love this song!'
     else
