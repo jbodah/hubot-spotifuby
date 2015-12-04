@@ -1,7 +1,7 @@
 {
   "name": "hubot-spotifuby",
   "description": "hubot/spotifuby integration",
-  "version": "1.0.4",
+  "version": "1.2.0",
   "author": "Josh Bodah <jb3689@yahoo.com>",
   "license": "MIT",
   "keywords": [
