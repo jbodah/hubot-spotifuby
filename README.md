@@ -7,7 +7,7 @@ hubot/spotifuby integration
 ## Description
 
 [hubot](https://github.com/github/hubot) plug-in for talking to a [spotifuby](https://github.com/jbodah/spotifuby) server.
-Spotifuby is a web server for communicating with a Spotify process ([more_detail](https://github.com/jbodah/spotifuby))
+Spotifuby is a web server for communicating with a Spotify process
 
 ## Installation
 
