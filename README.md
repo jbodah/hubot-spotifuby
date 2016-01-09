@@ -4,9 +4,10 @@
 
 hubot/spotifuby integration
 
-[What is Spotifuby?](https://github.com/jbodah/spotifuby)
+## Description
 
-See [`src/spotifuby.coffee`](src/spotifuby.coffee) for full documentation.
+[hubot](https://github.com/github/hubot) plug-in for talking to a [spotifuby](https://github.com/jbodah/spotifuby) server.
+Spotifuby is a web server for communicating with a Spotify process ([more_detail](https://github.com/jbodah/spotifuby))
 
 ## Installation
 
@@ -28,6 +29,8 @@ You'll also need to setup the `SPOTIFUBY_HOST` environment variable.
 user1>> play music
 hubot>> As you wish
 ```
+
+See [`src/spotifuby.coffee`](src/spotifuby.coffee) for full documentation.
 
 ## Releasing
 

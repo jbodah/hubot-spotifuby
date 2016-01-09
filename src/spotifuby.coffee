@@ -8,7 +8,6 @@
 #
 # Configuration:
 #   SPOTIFUBY_HOST
-#   DEFAULT_SPOTIFUBY_PLAYLIST
 #
 # Commands:
 #   None
